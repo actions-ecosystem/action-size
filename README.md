@@ -9,6 +9,11 @@ And buckets this number into a few size classes (S, L, XL, etc), and finally lab
 
 This action is inspired by [Kubernetes Prow's size plugin](https://prow.k8s.io/plugins).
 
+## Prerequisites
+
+You need to create labels indicating a pull request size.
+The description about the kinds of labels are below.
+
 ## Inputs
 
 `github_token`: **Required**. Must be in form of `github_token: ${{ secrets.github_token }}`.
