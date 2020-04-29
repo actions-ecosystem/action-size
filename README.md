@@ -2,6 +2,8 @@
 
 ![screenshot](./docs/assets/screenshot.png)
 
+Add label based on the number of lines changed in a pull request.
+
 Counts the number of lines changed in a pull request.
 And buckets this number into a few size classes (S, L, XL, etc), and finally labels the pull request with this size.
 
