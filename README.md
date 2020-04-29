@@ -2,10 +2,17 @@
 
 ![screenshot](./docs/assets/screenshot.png)
 
+Add label based on the number of lines changed in a pull request.
+
 Counts the number of lines changed in a pull request.
 And buckets this number into a few size classes (S, L, XL, etc), and finally labels the pull request with this size.
 
 This action is inspired by [Kubernetes Prow's size plugin](https://prow.k8s.io/plugins).
+
+## Prerequisites
+
+You need to create labels indicating a pull request size.
+The description about the kinds of labels are below.
 
 ## Inputs
 
