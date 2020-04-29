@@ -1,0 +1,60 @@
+name: Size
+description: |
+  Counts the number of lines changed in a pull request, buckets this number into a few size classes (S, L, XL, etc),
+  and finally labels the pull request with this size.
+author: Action Ecosystem Authors
+inputs:
+  github_token:
+    description: A GitHub token.
+    required: true
+  size_xs_label:
+    description: The name for size XS label.
+    required: false
+    default: size/XS
+  size_s_label:
+    description: The name for size S label.
+    required: false
+    default: size/S
+  size_m_label:
+    description: The name for size M label.
+    required: false
+    default: size/M
+  size_l_label:
+    description: The name for size L label.
+    required: false
+    default: size/L
+  size_xl_label:
+    description: The name for size XL label.
+    required: false
+    default: size/XL
+  size_xxl_label:
+    description: The name for size XXL label.
+    required: false
+    default: size/XXL
+  size_s_threshold:
+    description: The threshold for size S.
+    required: false
+    default: "10"
+  size_m_threshold:
+    description: The threshold for size M.
+    required: false
+    default: "30"
+  size_l_threshold:
+    description: The threshold for size L.
+    required: false
+    default: "100"
+  size_xl_threshold:
+    description: The threshold for size XL.
+    required: false
+    default: "500"
+  size_xxl_threshold:
+    description: The threshold for size XXL.
+    required: false
+    default: "1000"
+  dry_run:
+    description: Run the action in dry-run mode. If true, the action doesn't affect actual labels at all.
+    required: false
+    default: "false"
+runs:
+  using: node12
+  main: dist/index.js
