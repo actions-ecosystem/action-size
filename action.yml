@@ -2,7 +2,7 @@ name: Size
 description: |
   Counts the number of lines changed in a pull request, buckets this number into a few size classes (S, L, XL, etc),
   and finally labels the pull request with this size.
-author: Action Ecosystem Authors
+author: Actions Ecosystem Authors
 inputs:
   github_token:
     description: A GitHub token.
