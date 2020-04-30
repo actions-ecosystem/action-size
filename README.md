@@ -76,6 +76,6 @@ jobs:
 
 ## License
 
-Copyright 2020 Actions Ecosystem Authors.
+Copyright 2020 The Actions Ecosystem Authors.
 
 Action Size is released under the [Apache License 2.0](./LICENSE).
