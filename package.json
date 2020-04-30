@@ -21,7 +21,7 @@
     "github",
     "size"
   ],
-  "author": "Actions Ecosystem Authors",
+  "author": "The Actions Ecosystem Authors",
   "license": "Apache 2.0",
   "dependencies": {
     "@actions/core": "^1.2.3",

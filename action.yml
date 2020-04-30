@@ -1,6 +1,6 @@
 name: Actions Ecosystem Size
 description: Add label based on the number of lines changed in a pull request.
-author: Actions Ecosystem Authors
+author: The Actions Ecosystem Authors
 inputs:
   github_token:
     description: A GitHub token.
