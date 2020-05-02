@@ -49,10 +49,11 @@ inputs:
     description: The threshold for size XXL.
     required: false
     default: "1000"
-  dry_run:
-    description: Run the action in dry-run mode. If true, the action doesn't affect actual labels at all.
-    required: false
-    default: "false"
+outputs:
+  new_label:
+    description: The new label's name to be added.
+  stale_labels:
+    description: The stale labels' name to be removed. If there're multiple labels, they're separated by line breaks.
 runs:
   using: node12
   main: dist/index.js

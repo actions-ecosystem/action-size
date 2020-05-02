@@ -17,8 +17,6 @@ export interface ProcessorOptions {
   sizeLThreshold: number;
   sizeXLThreshold: number;
   sizeXXLThreshold: number;
-
-  dryRun: boolean;
 }
 
 /***
@@ -31,20 +29,16 @@ export class Processor {
   constructor(options: ProcessorOptions) {
     this.options = options;
     this.client = new github.GitHub(options.githubToken);
-
-    if (this.options.dryRun) {
-      core.debug(
-        'Running in dry-run mode. Debug output will be written but nothing will be processed.'
-      );
-    }
   }
 
   process() {
     const changes = Processor.getChangedLines();
-    const desiredLabel = this.determineLabel(changes);
-    const currentLabels = this.getCurrentSizeLabels();
-    core.debug(`desiredLabel=${desiredLabel}, currentLabels=${currentLabels}`);
-    this.updateSizeLabel(desiredLabel, currentLabels);
+
+    const newLabel = this.determineLabel(changes);
+    core.setOutput('new_label', newLabel);
+
+    const staleLabels = this.getCurrentSizeLabels();
+    core.setOutput('stale_labels', staleLabels.join('\n'));
   }
 
   private getCurrentSizeLabels(): string[] {
@@ -68,51 +62,20 @@ export class Processor {
   private determineLabel(changes: number): string {
     if (changes < this.options.sizeSThreshold) {
       return this.options.sizeXSLabel;
-    } else if (changes < this.options.sizeMThreshold) {
+    }
+    if (changes < this.options.sizeMThreshold) {
       return this.options.sizeSLabel;
-    } else if (changes < this.options.sizeLThreshold) {
+    }
+    if (changes < this.options.sizeLThreshold) {
       return this.options.sizeMLabel;
-    } else if (changes < this.options.sizeXLThreshold) {
+    }
+    if (changes < this.options.sizeXLThreshold) {
       return this.options.sizeLLabel;
-    } else if (changes < this.options.sizeXXLThreshold) {
+    }
+    if (changes < this.options.sizeXXLThreshold) {
       return this.options.sizeXLLabel;
-    } else {
-      return this.options.sizeXXLLabel;
     }
-  }
-
-  private updateSizeLabel(desiredLabel: string, currentLabels: string[]) {
-    const payload = github.context
-      .payload as Webhooks.WebhookPayloadPullRequest;
-
-    const owner = github.context.repo.owner;
-    const repo = github.context.repo.repo;
-    const number = payload.pull_request.number;
-
-    // TODO(micnncim): Make processes asynchronous.
-    for (const currentLabel of currentLabels.filter(
-      label => label !== desiredLabel
-    )) {
-      if (!this.options.dryRun) {
-        this.client.issues.removeLabel({
-          owner,
-          repo,
-          issue_number: number,
-          name: currentLabel
-        });
-      }
-      core.debug(`removed label ${currentLabel} in ${owner}/${repo}#${number}`);
-    }
-
-    if (!this.options.dryRun && !currentLabels.includes(desiredLabel)) {
-      this.client.issues.addLabels({
-        owner: github.context.repo.owner,
-        repo: github.context.repo.repo,
-        issue_number: number,
-        labels: [desiredLabel]
-      });
-      core.debug(`added label ${desiredLabel} in ${owner}/${repo}#${number}`);
-    }
+    return this.options.sizeXXLLabel;
   }
 
   private static getChangedLines(): number {
