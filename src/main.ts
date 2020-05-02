@@ -28,9 +28,7 @@ function getAndValidateArgs(): ProcessorOptions {
     sizeMThreshold: parseInt(core.getInput('size_m_threshold')),
     sizeLThreshold: parseInt(core.getInput('size_l_threshold')),
     sizeXLThreshold: parseInt(core.getInput('size_xl_threshold')),
-    sizeXXLThreshold: parseInt(core.getInput('size_xxl_threshold')),
-
-    dryRun: core.getInput('dry_run') === 'true'
+    sizeXXLThreshold: parseInt(core.getInput('size_xxl_threshold'))
   };
 
   for (const numberInput of [
