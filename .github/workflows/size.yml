@@ -10,8 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./
-        with:
-          github_token: ${{ secrets.github_token }}
         id: size
       - uses: actions-ecosystem/action-remove-labels@v1
         with:

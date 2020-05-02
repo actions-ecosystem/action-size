@@ -3533,7 +3533,6 @@ function run() {
 }
 function getAndValidateArgs() {
     const args = {
-        githubToken: core.getInput('github_token', { required: true }),
         sizeXSLabel: core.getInput('size_xs_label'),
         sizeSLabel: core.getInput('size_s_label'),
         sizeMLabel: core.getInput('size_m_label'),
@@ -5053,7 +5052,6 @@ const github = __importStar(__webpack_require__(469));
 class Processor {
     constructor(options) {
         this.options = options;
-        this.client = new github.GitHub(options.githubToken);
     }
     process() {
         const changes = Processor.getChangedLines();

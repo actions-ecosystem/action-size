@@ -15,8 +15,6 @@ async function run(): Promise<void> {
 
 function getAndValidateArgs(): ProcessorOptions {
   const args: ProcessorOptions = {
-    githubToken: core.getInput('github_token', {required: true}),
-
     sizeXSLabel: core.getInput('size_xs_label'),
     sizeSLabel: core.getInput('size_s_label'),
     sizeMLabel: core.getInput('size_m_label'),
