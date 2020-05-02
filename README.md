@@ -1,5 +1,8 @@
 # Action Size
 
+[![actions-workflow-test][actions-workflow-test-badge]][actions-workflow-test]
+[![release][release-badge]][release]
+
 ![screenshot](./docs/assets/screenshot.png)
 
 Add label based on the number of lines changed in a pull request.
@@ -79,3 +82,11 @@ jobs:
 Copyright 2020 The Actions Ecosystem Authors.
 
 Action Size is released under the [Apache License 2.0](./LICENSE).
+
+<!-- badge links -->
+
+[actions-workflow-test]: https://github.com/actions-ecosystem/action-size/actions?query=workflow%3ATest
+[actions-workflow-test-badge]: https://img.shields.io/github/workflow/status/actions-ecosystem/action-size/Test?label=Test&style=for-the-badge&logo=github
+
+[release]: https://github.com/actions-ecosystem/action-size/releases
+[release-badge]: https://img.shields.io/github/v/release/actions-ecosystem/action-size?style=for-the-badge&logo=github
