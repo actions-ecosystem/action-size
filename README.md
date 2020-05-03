@@ -53,10 +53,10 @@ Must be a maximal number, rather than a range.
 
 ## Outputs
 
-|      Name      |  Type  |                                             Description                                              |
-| -------------- | ------ | ---------------------------------------------------------------------------------------------------- |
-| `new_label`    | string | The new label's name to be added.                                                                    |
-| `stale_labels` | string | The stale labels' name to be removed. If there're multiple labels, they're separated by line breaks. |
+|      Name      |  Type  |                                                                          Description                                                                           |
+| -------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `new_label`    | string | The new label's name to be added. If there's no label to be added, it the value is `''`.                                                                       |
+| `stale_labels` | string | The stale labels' name to be removed. If there're multiple labels, they're separated by line breaks. If there's no labels to be removed, it the value is `''`. |
 
 ## Example
 
