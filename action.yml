@@ -2,9 +2,6 @@ name: Actions Ecosystem Size
 description: Add label based on the number of lines changed in a pull request.
 author: The Actions Ecosystem Authors
 inputs:
-  github_token:
-    description: A GitHub token.
-    required: true
   size_xs_label:
     description: The name for size XS label.
     required: false
