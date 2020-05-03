@@ -13,7 +13,7 @@ Counts the number of lines changed in a pull request.
 And buckets this number into a few size classes (S, L, XL, etc).
 
 It would be better to work with other actions which add and remove labels.
-See [the example below](#Example) for detail.
+See [the example below](#example) for detail.
 
 This action is inspired by [Kubernetes Prow's size plugin](https://prow.k8s.io/plugins).
 
