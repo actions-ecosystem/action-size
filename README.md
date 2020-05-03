@@ -2,6 +2,7 @@
 
 [![actions-workflow-test][actions-workflow-test-badge]][actions-workflow-test]
 [![release][release-badge]][release]
+[![license][license-badge]][license]
 
 ![screenshot](./docs/assets/screenshot-add-label.png)
 ![screenshot](./docs/assets/screenshot-remove-and-add-label.png)
@@ -98,3 +99,6 @@ Action Size is released under the [Apache License 2.0](./LICENSE).
 
 [release]: https://github.com/actions-ecosystem/action-size/releases
 [release-badge]: https://img.shields.io/github/v/release/actions-ecosystem/action-size?style=for-the-badge&logo=github
+
+[license]: LICENSE
+[license-badge]: https://img.shields.io/github/license/actions-ecosystem/action-size?style=for-the-badge
