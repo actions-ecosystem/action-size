@@ -5055,12 +5055,14 @@ class Processor {
     }
     process() {
         const changes = Processor.getChangedLines();
-        const newLabel = this.determineLabel(changes);
+        const desiredLabel = this.determineLabel(changes);
+        const currentLabels = this.getCurrentLabels();
+        const newLabel = currentLabels.includes(desiredLabel) ? '' : desiredLabel;
+        const staleLabel = currentLabels.filter(label => label !== desiredLabel);
         core.setOutput('new_label', newLabel);
-        const staleLabels = this.getCurrentSizeLabels();
-        core.setOutput('stale_labels', staleLabels.join('\n'));
+        core.setOutput('stale_labels', staleLabel.join('\n'));
     }
-    getCurrentSizeLabels() {
+    getCurrentLabels() {
         const payload = github.context
             .payload;
         return payload.pull_request.labels

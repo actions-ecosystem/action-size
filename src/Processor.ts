@@ -30,14 +30,17 @@ export class Processor {
   process() {
     const changes = Processor.getChangedLines();
 
-    const newLabel = this.determineLabel(changes);
-    core.setOutput('new_label', newLabel);
+    const desiredLabel = this.determineLabel(changes);
+    const currentLabels = this.getCurrentLabels();
 
-    const staleLabels = this.getCurrentSizeLabels();
-    core.setOutput('stale_labels', staleLabels.join('\n'));
+    const newLabel = currentLabels.includes(desiredLabel) ? '' : desiredLabel;
+    const staleLabel = currentLabels.filter(label => label !== desiredLabel);
+
+    core.setOutput('new_label', newLabel);
+    core.setOutput('stale_labels', staleLabel.join('\n'));
   }
 
-  private getCurrentSizeLabels(): string[] {
+  private getCurrentLabels(): string[] {
     const payload = github.context
       .payload as Webhooks.WebhookPayloadPullRequest;
 
