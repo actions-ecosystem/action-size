@@ -48,9 +48,9 @@ inputs:
     default: "1000"
 outputs:
   new_label:
-    description: The new label's name to be added.
+    description: The new label's name to be added. If there's no label to be added, it the value is `''`.
   stale_labels:
-    description: The stale labels' name to be removed. If there're multiple labels, they're separated by line breaks.
+    description: The stale labels' name to be removed. If there're multiple labels, they're separated by line breaks. If there's no labels to be removed, it the value is `''`.
 runs:
   using: node12
   main: dist/index.js
