@@ -3,7 +3,8 @@
 [![actions-workflow-test][actions-workflow-test-badge]][actions-workflow-test]
 [![release][release-badge]][release]
 
-![screenshot](./docs/assets/screenshot.png)
+![screenshot](./docs/assets/screenshot-add-label.png)
+![screenshot](./docs/assets/screenshot-remove-and-add-label.png)
 
 Determine a label to be added based on the number of lines changed in a pull request.
 
@@ -22,7 +23,7 @@ The description about the kinds of labels are below.
 
 ## Inputs
 
-The inputs for labels are optional. The default values are below.
+All the inputs are optional.
 
 ### Size labels
 
@@ -78,13 +79,11 @@ jobs:
       - uses: actions-ecosystem/action-remove-labels@v1
         with:
           github_token: ${{ secrets.github_token }}
-          labels: |
-            ${{ steps.size.outputs.stale_labels }}
+          labels: ${{ steps.size.outputs.stale_labels }}
       - uses: actions-ecosystem/action-add-labels@v1
         with:
           github_token: ${{ secrets.github_token }}
-          labels: |
-            ${{ steps.size.outputs.new_label }}
+          labels: ${{ steps.size.outputs.new_label }}
 ```
 
 ## License
