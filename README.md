@@ -3,7 +3,8 @@
 [![actions-workflow-test][actions-workflow-test-badge]][actions-workflow-test]
 [![release][release-badge]][release]
 
-![screenshot](./docs/assets/screenshot.png)
+![screenshot](./docs/assets/screenshot-add-label.png)
+![screenshot](./docs/assets/screenshot-remove-and-add-label.png)
 
 Determine a label to be added based on the number of lines changed in a pull request.
 
