@@ -2,6 +2,7 @@
 
 [![actions-workflow-test][actions-workflow-test-badge]][actions-workflow-test]
 [![release][release-badge]][release]
+[![license][license-badge]][license]
 
 ![screenshot](./docs/assets/screenshot-add-label.png)
 ![screenshot](./docs/assets/screenshot-remove-and-add-label.png)
@@ -12,7 +13,7 @@ Counts the number of lines changed in a pull request.
 And buckets this number into a few size classes (S, L, XL, etc).
 
 It would be better to work with other actions which add and remove labels.
-See [the example below](#Example) for detail.
+See [the example below](#example) for detail.
 
 This action is inspired by [Kubernetes Prow's size plugin](https://prow.k8s.io/plugins).
 
@@ -29,34 +30,33 @@ All the inputs are optional.
 
 The inputs `size_${size}_label` indicates what name each label has.
 
-|       Name       |  Type  |         Description          |  Default   |
-| ---------------- | ------ | ---------------------------- | ---------- |
-| `size_xs_label`  | string | The name for size XS label.  | `size/XS`  |
-| `size_s_label`   | string | The name for size S label.   | `size/S`   |
-| `size_m_label`   | string | The name for size M label.   | `size/M`   |
-| `size_l_label`   | string | The name for size L label.   | `size/L`   |
-| `size_xl_label`  | string | The name for size XL label.  | `size/XL`  |
-| `size_xxl_label` | string | The name for size XXL label. | `size/XXL` |
+|         NAME         |         DESCRIPTION          |   TYPE   | REQUIRED |  DEFAULT   |
+|----------------------|------------------------------|----------|----------|------------|
+| `size_xs_label`      | The name for size XS label.  | `string` | `false`  | `size/XS`  |
+| `size_s_label`       | The name for size S label.   | `string` | `false`  | `size/S`   |
+| `size_m_label`       | The name for size M label.   | `string` | `false`  | `size/M`   |
+| `size_xl_label`      | The name for size XL label.  | `string` | `false`  | `size/XL`  |
+| `size_xxl_label`     | The name for size XXL label. | `string` | `false`  | `size/XXL` |
 
 ### Size thresholds
 
 The inputs `size_${size}_threshold` indicates how many lines changed is corresponding to each label.
 Must be a maximal number, rather than a range.
 
-|         Name         |  Type  |         Description         | Default |
-| -------------------- | ------ | --------------------------- | ------- |
-| `size_s_threshold`   | number | The threshold for size S.   | `10`    |
-| `size_m_threshold`   | number | The threshold for size M.   | `30`    |
-| `size_l_threshold`   | number | The threshold for size L.   | `100`   |
-| `size_xl_threshold`  | number | The threshold for size XL.  | `500`   |
-| `size_xxl_threshold` | number | The threshold for size XXL. | `1000`  |
+|         NAME         |         DESCRIPTION          |   TYPE   | REQUIRED |  DEFAULT   |
+|----------------------|------------------------------|----------|----------|------------|
+| `size_s_threshold`   | The threshold for size S.    | `number` | `false`  | `10`       |
+| `size_m_threshold`   | The threshold for size M.    | `number` | `false`  | `30`       |
+| `size_l_threshold`   | The threshold for size L.    | `number` | `false`  | `100`      |
+| `size_xl_threshold`  | The threshold for size XL.   | `number` | `false`  | `500`      |
+| `size_xxl_threshold` | The threshold for size XXL.  | `number` | `false`  | `1000`     |
 
 ## Outputs
 
-|      Name      |  Type  |                                                                          Description                                                                           |
-| -------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `new_label`    | string | The new label's name to be added. If there's no label to be added, it the value is `''`.                                                                       |
-| `stale_labels` | string | The stale labels' name to be removed. If there're multiple labels, they're separated by line breaks. If there's no labels to be removed, it the value is `''`. |
+|      NAME      |                                                                          DESCRIPTION                                                                           |   TYPE   |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `new_label`    | The new label's name to be added. If there's no label to be added, it the value is `''`.                                                                       | `string` |
+| `stale_labels` | The stale labels' name to be removed. If there're multiple labels, they're separated by line breaks. If there's no labels to be removed, it the value is `''`. | `string` |
 
 ## Example
 
@@ -99,3 +99,6 @@ Action Size is released under the [Apache License 2.0](./LICENSE).
 
 [release]: https://github.com/actions-ecosystem/action-size/releases
 [release-badge]: https://img.shields.io/github/v/release/actions-ecosystem/action-size?style=for-the-badge&logo=github
+
+[license]: LICENSE
+[license-badge]: https://img.shields.io/github/license/actions-ecosystem/action-size?style=for-the-badge
