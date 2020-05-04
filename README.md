@@ -17,10 +17,12 @@ See [the example below](#example) for detail.
 
 This action is inspired by [Kubernetes Prow's size plugin](https://prow.k8s.io/plugins).
 
-## Prerequisites
+## Note
 
-You need to create labels indicating a pull request size.
-The description about the kinds of labels are below.
+GitHub API implicitly creates a label when it will add the label to an issue or a pull request but the label doesn't exists.
+The label has the default color and no description.
+
+If you don't prefer the default label, it's better to create labels indicating a pull request size.
 
 ## Inputs
 
