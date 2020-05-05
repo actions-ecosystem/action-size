@@ -1,6 +1,6 @@
 {
   "name": "action-size",
-  "version": "0.1.0",
+  "version": "2.2.0",
   "private": true,
   "description": "Counts the number of lines changed in a pull request",
   "main": "lib/main.js",
@@ -9,8 +9,7 @@
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
     "lint": "eslint src/**/*.ts",
-    "test": "jest",
-    "all": "npm run build && npm run format && npm run lint && npm test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,7 +18,8 @@
   "keywords": [
     "actions",
     "github",
-    "size"
+    "pull-request",
+    "label"
   ],
   "author": "The Actions Ecosystem Authors",
   "license": "Apache 2.0",
