@@ -37,13 +37,14 @@ The inputs `size_${size}_label` indicates what name each label has.
 | `size_xs_label`      | The name for size XS label.  | `string` | `false`  | `size/XS`  |
 | `size_s_label`       | The name for size S label.   | `string` | `false`  | `size/S`   |
 | `size_m_label`       | The name for size M label.   | `string` | `false`  | `size/M`   |
+| `size_l_label`       | The name for size L label.   | `string` | `false`  | `size/L`   |
 | `size_xl_label`      | The name for size XL label.  | `string` | `false`  | `size/XL`  |
 | `size_xxl_label`     | The name for size XXL label. | `string` | `false`  | `size/XXL` |
 
 ### Size thresholds
 
 The inputs `size_${size}_threshold` indicates how many lines changed is corresponding to each label.
-Must be a maximal number, rather than a range.
+Must be a minimal number, rather than a range.
 
 |         NAME         |         DESCRIPTION          |   TYPE   | REQUIRED |  DEFAULT   |
 |----------------------|------------------------------|----------|----------|------------|
